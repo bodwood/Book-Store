@@ -18,3 +18,7 @@ Notes
 
 - Inline CSS doesn't use dashes with their characteristic, instead they use camelcase
   * <h4> style={{marginTop: 10%}}
+
+- If we use {} we can revert back to Vanilla JS, but return must be VALUE and not a statement
+  * BAD: <h1>{let x = 6}</h1>
+  * GOOD: <h1>{6 + 6}</h1>
