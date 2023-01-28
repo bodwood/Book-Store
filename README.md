@@ -22,3 +22,8 @@ Notes
 - If we use {} we can revert back to Vanilla JS, but return must be VALUE and not a statement
   * BAD: <h1>{let x = 6}</h1>
   * GOOD: <h1>{6 + 6}</h1>
+
+- Props are objects that are passed into a function as a parameter
+  * const Book = (props) => {
+      const { title, author, image } = props;
+    }

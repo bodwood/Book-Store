@@ -2,42 +2,46 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 
-const bookOne = {
-  title: 'It Ends with Us: A Novel (1) ',
-  author: 'Colleen Hoover',
-  image:
-    'https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
-}
-
-const bookTwo = {
-  title: 'Spare',
-  author: 'Prince Harry The Duke of Sussex',
-  image: './images/atomic-habits.jpg',
-}
+const books = [
+  {
+    title: 'It Ends with Us',
+    author: 'Colleen Hoover',
+    image:
+      'https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SY291_BO1,204,203,200_QL40_FMwebp_.jpg',
+  },
+  {
+    title: 'Spare',
+    author: 'Prince Harry The Duke of Sussex',
+    image: './images/atomic-habits.jpg',
+  },
+  {
+    title: 'It Starts with Us',
+    author: 'Colleen Hoover',
+    image:
+      'https://m.media-amazon.com/images/I/51VC+Vru96L._SX320_BO1,204,203,200_.jpg',
+  },
+];
 
 const BookList = () => {
-  return (
-    <section className='booklist'>
-      <Book
-        title={bookOne.title}
-        author={bookOne.author}
-        image={bookOne.image}
-      />
-      <Book
-        title={bookTwo.title}
-        author={bookTwo.author}
-        image={bookTwo.image}
-      />
-    </section>
-  )
+  return (<section className='booklist'>
+    {books.map((book) => {
+      const {title, author, image } = book;
+      return (
+        <Book image={image} title={title} author={author}/>
+      )
+    })}
+  </section>
+  );
 }
 
 const Book = (props) => {
+  const { title, author, image, children } = props
   return (
     <article className='book'>
-      <img src={props.image} alt={props.title} />
-      <h2>{props.title}</h2>
-      <h4>{props.author}</h4>
+      <img src={image} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author}</h4>
+      {children}
     </article>
   )
 }
