@@ -27,3 +27,6 @@ Notes
   * const Book = (props) => {
       const { title, author, image } = props;
     }
+
+- Spread operator returs the entire object
+  * [...books]
