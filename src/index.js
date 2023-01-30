@@ -28,10 +28,12 @@ const books = [
 
 //what we want to place in elements
 const BookList = () => {
+  const someValue = 'I love cheese';
+  const displayValue = () => console.log(someValue);
   return (
     <section className='booklist'>
       {books.map((book) => {
-        return <Book {...book} key={book.id} />
+        return <Book {...book} key={book.id} displayValue={displayValue}/>
       })}
     </section>
   )
@@ -39,13 +41,12 @@ const BookList = () => {
 
 //structure of elements
 const Book = (props) => {
-  const { title, author, image, children } = props
-  const showTitle = () => console.log(title);
+  const { title, author, image, children, displayValue } = props
   return (
     <article className='book'>
       <img src={image} alt={title} />
       <h2>{title}</h2>
-      <button onClick={showTitle}>Display Title</button>
+      <button onClick={displayValue}>Click Me</button>
       <h4>{author}</h4>
       {children}
     </article>

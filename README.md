@@ -33,3 +33,5 @@ Notes
 
 - Inline functions work for onClick
   * <button onClick={() => console.log("I've been clicked!")}>Click Me</button>
+
+- Props can only be passed down from parent to child
