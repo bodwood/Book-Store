@@ -30,7 +30,6 @@ const books = [
 const BookList = () => {
   return (
     <section className='booklist'>
-      <EventExample />
       {books.map((book) => {
         return <Book {...book} key={book.id} />
       })}
@@ -41,44 +40,18 @@ const BookList = () => {
 //structure of elements
 const Book = (props) => {
   const { title, author, image, children } = props
+  const showTitle = () => console.log(title);
   return (
     <article className='book'>
       <img src={image} alt={title} />
       <h2>{title}</h2>
+      <button onClick={showTitle}>Display Title</button>
       <h4>{author}</h4>
       {children}
     </article>
   )
 }
 
-const EventExample = () => {
-  const handleFormInput = (e) => {
-    console.log('e')
-    console.log(e.target.name);
-    console.log(e.target.type);
-  }
-  const handleButtonClick = () => {
-    alert('Clicked Button')
-  }
-  const handleFormSubmission = (e) => {
-    e.preventDefault();
-    console.log('form submitted');
-  }
-  return (
-    <section>
-      <form onSubmit={handleFormSubmission}>
-        <h2>Form</h2>
-        <input
-          type='text'
-          name='example'
-          onChange={handleFormInput}
-          style={{ margin: '1rem 0' }}
-        />
-        <button onClick={handleButtonClick}>Click Me</button>
-      </form>
-    </section>
-  )
-}
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 

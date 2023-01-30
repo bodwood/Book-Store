@@ -30,3 +30,6 @@ Notes
 
 - Spread operator returs the entire object
   * [...books]
+
+- Inline functions work for onClick
+  * <button onClick={() => console.log("I've been clicked!")}>Click Me</button>
